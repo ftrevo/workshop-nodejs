@@ -13,6 +13,27 @@ app.use(bodyParser.json({ limit: '5mb' }));
 //Definição do Swagger
 app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerYaml));
 
+//Definição de rotas
+app.post('/users', function (request, response, next) {
+    return response.status(201).send({ 'message': 'Usuário criado.' });
+});
+
+app.get('/users', function (request, response, next) {
+    return response.status(200).send({ 'message': 'Usuários listados.' });
+});
+
+app.get('/users/:id', function (request, response, next) {
+    return response.status(200).send({ 'message': 'Usuário detalhado.' });
+});
+
+app.delete('/users/:id', function (request, response, next) {
+    return response.status(200).send({ 'message': 'Usuário removido.' });
+});
+
+app.patch('/users/:id', function (request, response, next) {
+    return response.status(200).send({ 'message': 'Usuário atualizado.' });
+});
+
 // Not Found Middleware
 app.use((request, response, next) => {
     return response.status(404).send({ 'message': 'Rota não encontrada.' });
