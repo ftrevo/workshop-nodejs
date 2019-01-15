@@ -17,11 +17,11 @@ app.use(bodyParser.json({ limit: '5mb' }));
 //Definição do Swagger
 app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerYaml));
 
-//Definição do middleware de erros
-app.use(errorMiddleware);
-
 //Definição de rotas
 routes(app);
+
+//Definição do middleware de erros
+app.use(errorMiddleware);
 
 // Not Found Middleware
 app.use(notFoundMiddleware);
