@@ -10,6 +10,9 @@ const routes = require('./routes');
 const errorMiddleware = require('./helpers/error-middleware');
 const notFoundMiddleware = require('./helpers/not-found-middleware');
 
+// Conexão com o banco de dados
+require('./helpers/datasource');
+
 // Inicialização e configuração do app
 const app = express();
 
