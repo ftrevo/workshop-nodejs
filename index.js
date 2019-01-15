@@ -1,4 +1,5 @@
 // ----------------- Import de dependências ----------------- //
+require('dotenv').config();
 const swaggerUi = require('swagger-ui-express');
 const bodyParser = require('body-parser');
 const express = require('express');
@@ -27,8 +28,8 @@ routes(app);
 app.use(notFoundMiddleware);
 
 //Inicialização do APP
-app.listen(3000, () => {
-    console.log('Servidor inicializado na porta 3000.');
+app.listen(process.env.PORT, () => {
+    console.log(`Servidor inicializado na porta ${process.env.PORT}.`);
 });
 
 module.exports = app;
