@@ -42,7 +42,7 @@ app.get('/users', function (request, response, next) {
 });
 
 app.get('/users/:_id', function (request, response, next) {
-    if (!request.params._id && request.params.id !== 'undefined') {
+    if (!request.params._id || request.params._id === 'undefined') {
         return response.status(400).send({ 'message': 'Dados obrigatórios não informados.' });
     }
 
@@ -50,7 +50,7 @@ app.get('/users/:_id', function (request, response, next) {
 });
 
 app.delete('/users/:_id', function (request, response, next) {
-    if (!request.params._id && request.params.id !== 'undefined') {
+    if (!request.params._id || request.params._id === 'undefined') {
         return response.status(400).send({ 'message': 'Dados obrigatórios não informados.' });
     }
 
@@ -59,7 +59,7 @@ app.delete('/users/:_id', function (request, response, next) {
 
 app.patch('/users/:_id', function (request, response, next) {
     if (
-        (!request.params._id && request.params.id !== 'undefined') ||
+        (!request.params._id || request.params._id === 'undefined') ||
         (
             !request.body.name && !request.body.phone && !request.body.email && !request.body.password
         )
