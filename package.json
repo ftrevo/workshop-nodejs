@@ -1,0 +1,17 @@
+{
+  "name": "workshop-nodejs",
+  "version": "1.0.0",
+  "description": "Workshop on NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Felipe Trevisan",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "swagger-ui-express": "^4.0.2",
+    "yamljs": "^0.3.0"
+  }
+}
